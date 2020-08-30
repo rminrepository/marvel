@@ -1,0 +1,47 @@
+<div class="backdrop fade-in"> 
+    <div class="alert-box" fxLayout="column" fxLayoutGap="3%">
+        <div class="alert-box-action" >
+
+            <mat-icon (click)="exit()"
+            style="cursor: pointer;"
+            [ngStyle]="{'color':'red'}"
+            >close</mat-icon>
+        
+        </div>
+        <mat-card fxLayout="column" fxLayoutAlign="start" fxLayoutGap="2px" style="width: 100%;height: 450px;" fxFlex >
+   
+            <img src ="{{data.thumbnail.path + '.' +data.thumbnail.extension +'?ts='+marv.ts+'&apikey='+marv.apikey+'&hash='+marv.hash }}"
+              title="{{data.name}}" class="marvpics" >
+
+        </mat-card>
+   <div fxLayout="row" fxLayoutGap="2%" fxFlex>
+        <mat-card fxFlex>
+            <mat-form-field fxFill>
+                <mat-label>description</mat-label>
+                <textarea matInput rows="5" readonly>{{data.description ? data.description : 'no description added'}}</textarea>
+              </mat-form-field>
+        </mat-card>
+
+        <mat-card fxFlex>
+       
+         <p> more info :</p>
+     <div fxLayout="row" fxLayoutGap="2%">
+        
+       <p *ngFor="let links of data.urls" fxFlex="20">
+        <a (click)="goto(links.url)"><i style="cursor: pointer;color: blue;">{{links.type}}</i></a>
+       </p>     
+     </div>
+     <button mat-raised-button color="accent"
+     *ngIf="!isFavorite" (click)="favoriteChar()">
+     Favorite Character 
+     <mat-icon [ngStyle]="{'color':'red'}"> favorite</mat-icon>
+    </button>
+    <p [ngStyle]="{'color':'brown'}" *ngIf="isFavorite">character is your favorite</p>
+     
+        </mat-card>
+      
+    </div>     
+
+     
+        </div>      
+        </div>

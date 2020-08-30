@@ -6,6 +6,13 @@ export const environment = {
   production: false
 };
 
+export const marvel = {
+  url: 'https://gateway.marvel.com/v1/public/characters?',
+  ts: '1565922410',
+  apikey:'6a038473ffd6407750a2ea27115f7e7c',
+  hash:'1492df65a88ef98a1a279719fe509f72'
+}
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

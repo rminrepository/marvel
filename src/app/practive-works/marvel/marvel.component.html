@@ -1,0 +1,58 @@
+<button mat-raised-button color="accent" (click)="favoriteCharacters()" >
+Favorite Characters
+</button>
+<mat-card fxLayout="column" fxLayoutGap="2%" fxLayoutAlign="center center"  *ngIf="pics.length" >   
+  <mat-form-field fxFlex="30">
+    <input type="text"
+           placeholder="search"
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-card fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2%" style="width: 60%;height: 300px;" fxFlex *ngIf="searchResult">
+    <img src ="{{pics[options.indexOf(search[0])].thumbnail.path + '.' +pics[options.indexOf(search[0])].thumbnail.extension +'?ts='+marv.ts+'&apikey='+marv.apikey+'&hash='+marv.hash }}"
+    title="{{pics[options.indexOf(search[0])].name}}" class="marvpics" (click)="characterDesc(pics[options.indexOf(search[0])])">
+
+  </mat-card>
+
+<mat-card fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2%" style="width: 60%;height: 300px;" fxFlex *ngIf="!searchResult">
+   
+<img src ="{{pics[c].thumbnail.path + '.' +pics[c].thumbnail.extension +'?ts='+marv.ts+'&apikey='+marv.apikey+'&hash='+marv.hash }}"
+  title="{{pics[c].name}}" class="marvpics" (click)="characterDesc(pics[c])">
+
+<img src ="{{pics[c+1].thumbnail.path + '.' +pics[c+1].thumbnail.extension +'?ts='+marv.ts+'&apikey='+marv.apikey+'&hash='+marv.hash }}"
+  title="{{pics[c+1].name}}"  class="marvpics" *ngIf="pics[c+1]" (click)="characterDesc(pics[c+1])">
+
+<img src ="{{pics[c+2].thumbnail.path + '.' +pics[c+2].thumbnail.extension +'?ts='+marv.ts+'&apikey='+marv.apikey+'&hash='+marv.hash }}"
+ title="{{pics[c+2].name}}"  class="marvpics" *ngIf="pics[c+2]" (click)="characterDesc(pics[c+2])">
+</mat-card>
+<mat-card fxLayout="row" fxLayoutAlign="center center" style="width: 60%;" fxLayoutGap="5%" fxFlex *ngIf="!searchResult"> 
+
+
+
+
+<mat-form-field fxFlex="25">
+    <mat-select  placeholder="goto page" >
+        <mat-option *ngFor="let page of paginate" value="page" (click)="paginator(page)" #page>{{ page + 1  }}</mat-option>
+    </mat-select>
+</mat-form-field>
+
+    <button mat-raised-button color="primary"
+       (click)="prevPics()" >
+    Prev
+  </button> 
+  <button mat-raised-button color="primary"
+ (click)="nextPics()" >
+Next
+</button>
+</mat-card>
+</mat-card>
+
+<ng-template appModalDirective></ng-template>

@@ -1,0 +1,77 @@
+.fade-in {
+  animation: fadeIn ease 0.2s;
+  -webkit-animation: fadeIn ease 0.2s;
+  -moz-animation: fadeIn ease 0.2s;
+  -o-animation: fadeIn ease 0.2s;
+  -ms-animation: fadeIn ease 0.2s;
+  }
+  @keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+
+
+  .marvpics {
+    
+    width: 100%;
+    height: 300px;
+    cursor: pointer;
+}
+
+
+
+
+.backdrop {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.75);
+    z-index: 50;
+  }
+  
+  .classButton{
+    background-color: red;
+  }                
+  
+  .alert-box {
+    position: fixed;
+    top:2vh;
+    left:0vw;
+    width: 60vw;
+    padding: 16px;
+    z-index: 100;
+    background:white;
+    box-shadow: 02px 8px rgba(0,0,0,0.25);
+    height: 700px;
+  }
+  
+  .alert-box-action {
+    text-align: right;
+  }
+  
+  .cardclass{
+    height: 50px;
+  }
+  

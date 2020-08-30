@@ -1,0 +1,34 @@
+<div class="backdrop fade-in">  
+    <div class="alert-box" fxLayout="column" fxLayoutGap="3%" >
+      <h5 [ngStyle]="{'color':'brown'}">Favorite Characters :</h5>
+        <div class="alert-box-action" >
+         <mat-icon (click)="exit()"
+          style="cursor: pointer;"
+          [ngStyle]="{'color':'red'}"
+          >close</mat-icon>
+        
+        </div>
+        <mat-card fxLayout="column" fxLayoutAlign="start" fxLayoutGap="2%" style="width: 100%;height: 200px;overflow-y: auto;" fxFlex >
+          <div fxLayoutAlign="center center" *ngIf="!favList.length">
+            List is Empty
+          </div>
+         <mat-card *ngFor="let characters of favList;let i=index">
+           <div fxLayout="row" fxLayoutGap="2%">
+          <img src ="{{characters.thumbnail.path + '.' +characters.thumbnail.extension +'?ts='+marv.ts+'&apikey='+marv.apikey+'&hash='+marv.hash }}"
+          class="marvpics">
+          <p>name: {{characters.name}}</p>          
+          </div>  
+          <div fxLayoutAlign="end">
+          <mat-icon  [ngStyle]="{'color':'red'}" (click)="deleteChar(i)"
+          style="cursor: pointer;">delete</mat-icon>        
+          </div>
+         </mat-card>
+
+            
+        </mat-card>
+      
+             
+
+     
+        </div>      
+        </div>
